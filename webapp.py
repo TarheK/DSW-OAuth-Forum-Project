@@ -8,8 +8,8 @@ import json
 
 app = Flask(__name__)
 
-app.debug = True #Change this to False for production
-
+app.debug = False #Change this to False for production
+os.environ['OATHLIB_INSECURE_TRANSPORT']='1'
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
 
@@ -75,6 +75,7 @@ def authorized():
 @github.tokengetter
 def get_github_oauth_token():
     return session.get('github_token')
+    
 
 
 if __name__ == '__main__':
