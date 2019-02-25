@@ -27,9 +27,9 @@ github = oauth.remote_app(
 )
 
 #TODO: Create and set a global variable for the name of you JSON file here.  The file will be storedd on Heroku, so you don't need to make it in GitHub
-
+info="posts.json"
 #TODO: Create the file on Heroku using os.system.  Ex) os.system("echo '[]'>"+myFile) puts '[]' into your file
-
+os.system("echo '[]'>"+info)
 @app.context_processor
 def inject_logged_in():
     return {"logged_in":('github_token' in session)}
@@ -41,6 +41,8 @@ def home():
 @app.route('/posted', methods=['POST'])
 def post(): 
     return render_template('home.html')
+    With open (‘filename.json’, ‘r’) as f:
+    Data = json.load (f)
     #This function should add the new post to the JSON file of posts and then render home.html and display the posts.  
     #Every post should include the username of the poster and text of the post. 
 
