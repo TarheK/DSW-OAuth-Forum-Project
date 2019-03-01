@@ -5,6 +5,7 @@
 {% block content %}
   <h1>Forum</h1>
   <p>CATS</p>
+  <img src="{{ url_for('static', filename='A.jpg') }}" alt="cat"></img>
   
   {% if logged_in %}
   <form action='/posted' method="post">

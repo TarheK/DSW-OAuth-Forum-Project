@@ -1,7 +1,9 @@
 body {
+   background-color: lightblue;
 
 }
 
 #content {
-     margin-left: 20px;
+     margin-left: 130px;
+	 margin-right: 130px;
 }
