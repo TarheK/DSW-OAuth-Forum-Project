@@ -19,6 +19,11 @@
 
   
   {{ past_posts }}
+  
+  {% for i in past_posts %}
+  <p> message {{i["message"]}}</p>
+  <p> Posted by {{i["username"]}}</p>
+  {% endfor %}
 
 
 {% endblock %}
