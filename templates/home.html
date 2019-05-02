@@ -15,6 +15,7 @@
     <br>
     <input type="submit" value="Post">
   </form>
+
   {% endif %}
 
   
@@ -23,6 +24,9 @@
   {% for i in past_posts %}
   <p> message {{i["message"]}}</p>
   <p> Posted by {{i["username"]}}</p>
+  <form action = "/delete" method = "post"> 
+	<button type="submit" name="delete" value="docid">Delete</button>
+  </form>
   {% endfor %}
 
 

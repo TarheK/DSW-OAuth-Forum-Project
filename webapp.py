@@ -1,11 +1,13 @@
 from flask import Flask, redirect, url_for, session, request, jsonify, Markup
 from flask_oauthlib.client import OAuth
 from flask import render_template
+from bson.objectid import ObjectId
 
 import pprint
 import os
 import json
 import pymongo
+
 
 app = Flask(__name__)
 
@@ -66,6 +68,10 @@ def login():
 def logout():
     session.clear()
     return render_template('message.html', message='You were logged out')
+    
+@app.route('/delete')
+def delete():
+    return redirect(url_for('.home'))
 
 @app.route('/login/authorized')
 def authorized():
