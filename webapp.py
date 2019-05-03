@@ -11,7 +11,7 @@ import pymongo
 
 app = Flask(__name__)
 
-app.debug = False #Change this to False for production
+app.debug = True #Change this to False for production
 app.secret_key = os.environ['SECRET_KEY'] #used to sign session cookies
 oauth = OAuth(app)
 os.environ["OAUTHLIB_INSECURE_TRANSPORT"]="1"
@@ -69,8 +69,12 @@ def logout():
     session.clear()
     return render_template('message.html', message='You were logged out')
     
-@app.route('/delete')
+@app.route('/delete', methods=['POST'])
 def delete():
+   # _id = {"delete":""}
+    user = session["user_data"]["login"]
+    id_to_delete = request.form["delete"]
+    collection.delete_one({"_id": ObjectId(id_to_delete)})
     return redirect(url_for('.home'))
 
 @app.route('/login/authorized')

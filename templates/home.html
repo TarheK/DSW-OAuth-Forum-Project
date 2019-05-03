@@ -25,7 +25,7 @@
   <p> message {{i["message"]}}</p>
   <p> Posted by {{i["username"]}}</p>
   <form action = "/delete" method = "post"> 
-	<button type="submit" name="delete" value="docid">Delete</button>
+	<button type="submit" name="delete" value={{i["_id"]}}>Delete</button>
   </form>
   {% endfor %}
 
